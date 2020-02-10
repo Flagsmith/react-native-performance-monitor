@@ -10,19 +10,13 @@ import io from 'socket.io-client';
 ReactFC.fcRoot(FusionCharts, Charts, TimeSeries, FusionTheme);
 const colors = [
     '#5d62b5', '#29c3be', '#f2726f',
+    '#4fb54f', '#c3bf39', '#f26394',
     '#5d62b5', '#29c3be', '#f2726f',
+    '#4fb54f', '#c3bf39', '#f26394',
     '#5d62b5', '#29c3be', '#f2726f',
+    '#4fb54f', '#c3bf39', '#f26394',
     '#5d62b5', '#29c3be', '#f2726f',
-    '#5d62b5', '#29c3be', '#f2726f',
-    '#5d62b5', '#29c3be', '#f2726f',
-    '#5d62b5', '#29c3be', '#f2726f',
-    '#5d62b5', '#29c3be', '#f2726f',
-    '#5d62b5', '#29c3be', '#f2726f',
-    '#5d62b5', '#29c3be', '#f2726f',
-    '#5d62b5', '#29c3be', '#f2726f',
-    '#5d62b5', '#29c3be', '#f2726f',
-    '#5d62b5', '#29c3be', '#f2726f',
-    '#5d62b5', '#29c3be', '#f2726f',
+    '#4fb54f', '#c3bf39', '#f26394',
 ];
 const defaultState = {
     dataSource: {
