@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://www.solidstategroup.com/sitemap.xml
-Host: https://www.solidstategroup.com

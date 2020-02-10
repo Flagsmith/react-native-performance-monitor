@@ -31,6 +31,7 @@ Promise.all([
     app.prepare(),
 ]).then(() => {
     const server = express();
+
     const sw = join(__dirname, '.next/service-worker.js');
     const favicon = join(__dirname, '/static/images/favicon.ico');
     const sitemap = join(__dirname, '/static/sitemap.xml');
@@ -44,6 +45,7 @@ Promise.all([
     server.get('/robots.txt', (req, res) => {
         app.serveStatic(req, res, robots);
     });
+
 
     server.get('/favicon.ico', (req, res) => {
         app.serveStatic(req, res, favicon);
@@ -68,10 +70,19 @@ Promise.all([
         });
     }
 
+    server.post('/value', require('body-parser').json(), (req, res) => {
+        if (req.body && req.body.value) {
+            io.emit('data', req.body.value);
+        }
+        res.send('');
+    });
+
     server.get('*', (req, res) => handle(req, res));
 
-    server.listen(port, (err) => {
+    const serverInstance = server.listen(port, (err) => {
         if (err) throw err;
         console.log(`> Ready on http://localhost:${port}`); // eslint-disable-line no-console
     });
+
+    const io = require('socket.io')(serverInstance);
 });

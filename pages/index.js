@@ -1,7 +1,9 @@
+import '../styles/styles.scss';
 import React from 'react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import Page from '../components/Page';
+
+import dynamic from 'next/dynamic';
+// This component depends on the client-only PDF library
+const Chart = dynamic(import('../components/Chart'), { ssr: false });
 
 const HomePage = class extends React.Component {
     static displayName = 'HomePage';
@@ -12,13 +14,9 @@ const HomePage = class extends React.Component {
     }
 
     render = () => {
-        return (
-            <Page title={Constants.titles.home} canonical="">
-                <Header/>
-                <h1>Home</h1>
-                <Footer/>
-            </Page>
-        );
+        return Chart ? (
+            <Chart/>
+        ) : <div></div>;
     }
 };
 
