@@ -8,7 +8,7 @@ import _ from 'lodash';
 import io from 'socket.io-client';
 
 ReactFC.fcRoot(FusionCharts, Charts, TimeSeries, FusionTheme);
-
+const colors = ['#5d62b5', '#29c3be', '#f2726f'];
 const defaultState = {
     dataSource: {
         chart: {
@@ -18,6 +18,7 @@ const defaultState = {
             drawcrossline: '1',
             theme: 'fusion',
             showvalues: '0',
+            'palettecolors': colors.map(c => c.replace('#', '')).join(','),
         },
         categories: [
             { category: [
@@ -53,6 +54,24 @@ export default class extends React.Component {
         }
         this.state.dataSource.dataset[this.state.dataSource.dataset.length - 1].data.push({
             value,
+        });
+        const averages = [];
+        _.each(this.state.dataSource.dataset, (dataSet) => {
+            let total = 0;
+            _.each(dataSet.data, (item) => {
+                total += item.value;
+            });
+            averages.push(total / dataSet.data.length);
+        });
+        this.state.dataSource.trendlines = averages.map((v, i) => {
+            return {
+                'line': [{
+                    'color': colors[i],
+                    'thickness': '4',
+                    startValue: v,
+                    'alpha': '50',
+                }],
+            };
         });
         this.forceUpdate();
     }
@@ -96,8 +115,10 @@ export default class extends React.Component {
                     />
                 </div>
                 <div className="text-center mt-2">
-                    <button className="btn btn-primary mr-2" onClick={this.toggleType}>Toggle graph type</button>
                     <button className="btn btn-primary mr-2" onClick={this.addSeries}>Add Variant</button>
+                </div>
+                <div className="text-center mt-2">
+                    <button className="btn btn-secondary mr-2" onClick={this.toggleType}>Toggle graph type</button>
                     <button className="btn btn-danger" onClick={this.clear}>Clear</button>
                 </div>
             </div>
