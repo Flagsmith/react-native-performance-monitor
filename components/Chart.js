@@ -43,7 +43,7 @@ export default class extends React.Component {
         super(props);
         this.state = {
             ..._.cloneDeep(defaultState),
-            type: 'msline',
+            type: 'overlappedcolumn2d',
         };
     }
 
@@ -81,7 +81,14 @@ export default class extends React.Component {
                     'alpha': '50',
                 }],
             };
-        });
+        }).concat([{
+            line: [{
+                'color': '#ff0000',
+                'thickness': '2',
+                startValue: 16.67,
+                'alpha': '100',
+            }],
+        }]);
         this.forceUpdate();
     }
 
@@ -103,14 +110,6 @@ export default class extends React.Component {
         this.setState(_.cloneDeep(defaultState));
     }
 
-    toggleType = () => {
-        if (this.state.type === 'msline') {
-            this.setState({ type: 'overlappedcolumn2d' });
-        } else {
-            this.setState({ type: 'msline' });
-        }
-    }
-
     render() {
         return (
             <div style={{ height: '100vh' }}>
@@ -127,7 +126,6 @@ export default class extends React.Component {
                     <button className="btn btn-primary mr-2" onClick={this.addSeries}>Add Variant</button>
                 </div>
                 <div className="text-center mt-2">
-                    <button className="btn btn-secondary mr-2" onClick={this.toggleType}>Toggle graph type</button>
                     <button className="btn btn-danger" onClick={this.clear}>Clear</button>
                 </div>
             </div>
