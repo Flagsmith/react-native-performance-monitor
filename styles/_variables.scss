@@ -1,0 +1,71 @@
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/variables";
+
+// Adding fonts
+//@font-face {
+//  font-family: 'Proxima Nova';
+//  src: url('/static/fonts/Proxima-Nova-Regular.woff');
+//  font-display:swap;
+//}
+//@font-face {
+//  font-family: 'Proxima Nova';
+//  src: url('/static/fonts/Proxima-Nova-Semibold.woff');
+//  font-weight:bold;
+//  font-display:swap;
+//}
+//@font-face {
+//  font-family: 'Proxima Nova Bold';
+//  src: url('/static/fonts/Proxima-Nova-Semibold.woff');
+//  font-display:swap;
+//}
+
+// COLORS
+$brand-primary: #0d65df;
+$brand-secondary: #D8315B;
+$link-color: #05499b;
+
+
+//Input component variables
+$alert-danger-border: #c70000;
+$input-line-height: 25px;
+$input-font-size: inherit;
+$input-font-weight: 200;
+$input-border-color: rgb(224, 224, 224);
+$input-placeholder-color: rgb(224, 224, 224);
+$input-border-highlight-color: rgb(0, 188, 212);
+
+//Panel component variables
+$panel-heading-height: 50px;
+$panel-bg: #fff;
+$panel-heading-bg: #f7f7f7;
+$panel-heading-color: #333;
+$panel-heading-border: 1px solid #f1f1f1;
+$panel-icon-color: #36a39c;
+$panel-icon-border-color: #ddd;
+$panel-icon-background-color: #fff;
+$panel-alt-heading-bg: #36a39c;
+$panel-alt-heading-color: #fff;
+
+//Tab component styles
+$tab-background: transparent;
+$tab-background-hover: transparent;
+$tab-background-active: transparent;
+$tab-active-background: transparent;
+$tab-inactive-color: lighten(black, 20);
+$tab-active-color: black;
+$tab-line-color: $brand-primary;
+
+//Toast component styles
+$toast-bg:rgba(0,0,0,.9);
+$toast-color:white;
+
+//Scaffolding
+$breakpoints: (
+    mobile-small: 320px,
+    mobile: 375px,
+    handheld-device: 576px,
+    tablet: 768px,
+    tablet-large: 992px,
+    desktop: 1200px
+)

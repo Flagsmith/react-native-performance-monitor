@@ -1,0 +1,134 @@
+.blog {
+    min-height: calc(100vh - 448px);
+    pre {
+        border-radius: 10px;
+        background: #212121;
+        color: #fff;
+        padding: 10px;
+        font-size: 14px;
+    }
+    img {
+        max-width: 100%;
+    }
+    a {
+        font-weight: bold;
+        color: $body-color;
+    }
+    .avatar {
+        width: 48px;
+        height: 48px;
+        border-radius: 24px;
+    }
+    .author {
+        font-size: 14px;
+        line-height: 20px;
+        .date {
+            color: #666;
+        }
+    }
+    font-size: 21px;
+    line-height: 1.58;
+    text-rendering:optimizelegibility;
+    word-break:break-word;
+    -webkit-font-smoothing:antialiased;
+    color: rgba(0, 0, 0, 0.84);
+    h1, h2, h3, p,a  {
+        color: rgba(0, 0, 0, 0.84);
+    }
+    h1, h2 {
+        margin-block-end: 16px;
+    }
+    h2 {
+        margin-block-start: 40px;
+    }
+    h3 {
+        margin-block-start: 30px;
+        margin-block-end: 12px;
+    }
+    a {
+        font-weight: bold;
+        text-decoration: underline;
+        &:hover {
+            color: rgba(0, 0, 0, 0.84);
+        }
+    }
+}
+
+.blog-item {
+    box-shadow: 0 2px 12px 0 rgba(119, 119, 119, 0.35);
+    border-radius: 8px;
+    margin-bottom: 3em;
+    font-size: 21px;
+    .blog-item-content {
+        padding: 20px;
+    }
+    h1, h2, h3, p,a  {
+        color: rgba(0, 0, 0, 0.84);
+        margin-block-start: 0px;
+        margin-block-end: 0px;
+    }
+    .date {
+        color: #666;
+        font-size: 16px;
+    }
+}
+
+.blog-tag {
+    padding:5px 15px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+    display: inline-block;
+    border-radius: 10px;
+    font-size:16px;
+    background-color: #333;
+    color: white;
+    font-weight: bold;
+    &.javascript {
+        background-color: #f6de1d;
+        color: black;
+    }
+    &.java {
+        background-color: #f1f1f1;
+        color: #027089;
+    }
+    &.testing {
+        background-color: #f1f1f1;
+        color: #333;
+    }
+    &.react {
+        background-color: #222222;
+        color: #60daf6;
+    }
+    &.react_native {
+        background-color: #0ec7f8;
+        color: #fff;
+    }
+    &.continuous_integration,&.ci,.testing {
+        background-color: #40af63;
+        color: #fff;
+    }
+    &.webdev {
+        background-color: #4c235a;
+        color: #fff;
+    }
+    &.productivity {
+        background-color: #af5300;
+        color: #fff;
+    }
+    &.infrastructure {
+        background-color: #af851d;
+        color: #fff;
+    }
+    &.python {
+        background-color: #356fa0;
+        color: #f8c93f;
+    }
+    &.docker {
+        background-color: white;
+        color: #2395ec;
+        border: 1px solid #eaeaea;
+    }
+    &:hover {
+        text-decoration: underline;
+    }
+}
