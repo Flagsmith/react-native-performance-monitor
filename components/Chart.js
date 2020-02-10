@@ -8,7 +8,22 @@ import _ from 'lodash';
 import io from 'socket.io-client';
 
 ReactFC.fcRoot(FusionCharts, Charts, TimeSeries, FusionTheme);
-const colors = ['#5d62b5', '#29c3be', '#f2726f'];
+const colors = [
+    '#5d62b5', '#29c3be', '#f2726f',
+    '#5d62b5', '#29c3be', '#f2726f',
+    '#5d62b5', '#29c3be', '#f2726f',
+    '#5d62b5', '#29c3be', '#f2726f',
+    '#5d62b5', '#29c3be', '#f2726f',
+    '#5d62b5', '#29c3be', '#f2726f',
+    '#5d62b5', '#29c3be', '#f2726f',
+    '#5d62b5', '#29c3be', '#f2726f',
+    '#5d62b5', '#29c3be', '#f2726f',
+    '#5d62b5', '#29c3be', '#f2726f',
+    '#5d62b5', '#29c3be', '#f2726f',
+    '#5d62b5', '#29c3be', '#f2726f',
+    '#5d62b5', '#29c3be', '#f2726f',
+    '#5d62b5', '#29c3be', '#f2726f',
+];
 const defaultState = {
     dataSource: {
         chart: {
