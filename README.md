@@ -67,3 +67,6 @@ export default (WrappedComponent, _id, remote) => {
 };
 
 ```
+
+export default withPerformance(YourScreen, 'Screen Name', 'http://localhost:3000/value');
+
