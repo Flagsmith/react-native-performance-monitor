@@ -6,6 +6,8 @@ import FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
 import ReactFC from 'react-fusioncharts/lib/ReactFC';
 import _ from 'lodash';
 import io from 'socket.io-client';
+import parseInput from './parse-input';
+import Row from './Row';
 
 ReactFC.fcRoot(FusionCharts, Charts, TimeSeries, FusionTheme);
 const colors = [
@@ -35,6 +37,10 @@ const defaultState = {
             ] },
         ],
         dataset: [
+            {
+                seriesname: 'Baseline test',
+                data: [],
+            },
         ],
     },
 };
@@ -108,6 +114,16 @@ export default class extends React.Component {
         this.forceUpdate();
     }
 
+    setVariantName = (i, e) => {
+        this.state.dataSource.dataset[i].seriesname = parseInput(e);
+        this.forceUpdate();
+    }
+
+    removeSeries = (i) => {
+        this.state.dataSource.dataset.splice(i, 1);
+        this.forceUpdate();
+    }
+
     clear = () => {
         this.setState(_.cloneDeep(defaultState));
     }
@@ -117,13 +133,27 @@ export default class extends React.Component {
     pauseResume= () => this.setState({ paused: !this.state.paused })
 
     render() {
+        const datasets = this.state.dataSource.dataset;
         return (
             <div className="container-fluid">
                 <div className="row">
                     <div className={`control-panel${this.state.hideMenu ? ' hidden' : ''}`}>
                         <div style={{ flex: 1 }}>
+                            {datasets && datasets.map((d, i) => (
+                                <Row key={i} className="experiment-row">
+                                    <input
+                                      key={i} onChange={e => this.setVariantName(i, e)} type="text"
+                                      value={d.seriesname}
+                                    />
+                                    <button onClick={() => this.removeSeries(i)} type="button" className="btn btn-default">
+                                        <img width={20} src="/static/close.svg"/>
+                                    </button>
+                                </Row>
+                            ))}
                             <div className="text-center mt-2">
-                                <button type="button" className="btn btn-primary mr-2" onClick={this.addSeries}>Add Variant</button>
+                                <button type="button" className="btn btn-primary mr-2" onClick={this.addSeries}>
+                                    <img width={20} src="/static/add.svg"/> Add Experiment
+                                </button>
                             </div>
                             <div className="text-center mt-2">
                                 <button type="button" className="btn btn-primary" onClick={this.pauseResume}>

@@ -22,11 +22,12 @@ html, body {
   height: 100vh;
   display: flex;
   flex-direction: column;
+
   width: $width;
   @include transition(all 0.5s ease);
   overflow: hidden;
   &.hidden {
-    margin-left: -($width - 20);
+    margin-left: -($width);
   }
   background: $sidebar-bg;
 }
@@ -56,4 +57,31 @@ html, body {
 }
 #__next-prerender-indicator {
   display: none;
+}
+$input-color: #b8bdc3;
+$input-color-active: #ebf0f6;
+.experiment-row {
+  padding: 10px;
+
+}
+input {
+  width: 200px;
+  outline: none;
+  background: transparent;
+  border: 2px solid $input-color;
+  &:focus{
+    border-color: $input-color-active;
+    color: $input-color-active;
+  }
+  line-height: 34px;
+  color: $input-color;
+  border-radius: 4px;
+  margin-right: 10px;
+  text-indent: 5px;
+}
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:focus {
+  background: #ebf0f6 !important;
+  color: #677182 !important;
+  border: 2px solid transparent;
+  outline: none!important;
 }

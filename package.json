@@ -23,6 +23,7 @@
     "babel-eslint": "10.0.1",
     "bootstrap": "4.3.1",
     "cacheable-response": "^2.0.1",
+    "classnames": "^2.2.6",
     "cookie": "0.4.0",
     "eslint": "6.2.2",
     "eslint-config-airbnb": "17.1.0",
