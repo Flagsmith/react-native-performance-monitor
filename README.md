@@ -1,75 +1,29 @@
 <img src="./example.gif"/>
 
-This is work in progress, follow the repository as it should be ready for wider use soon.
+This project lets you see a realtime graph of render times. The purpose is for you to be able to create experiments on your markup and see how performance is impacted in terms of mounting and rendering.
+ 
+Every render causes data to be posted to the realtime graph, you can configure whether it's just mounts or updates that are posted. 
 
 
-This project lets you see a realtime graph of render times. The purpose is for you to be able to create experiments (i.e. change markup and see how it affects render times), every render causes data to be posted to 
-
-
-# installation localhost:3000
-Clone this repository
+# installation
 ```
-npm i
-npm run dev
+npm i react-native-performance-monitor --save
 ```
 
-
-use this hoc 
-
+# Displaying the graph
 ```
-import React, { Component } from 'react';
-
-const Profiler = React.Profiler;
-
-export default (WrappedComponent, _id, remote) => {
-    class HOC extends Component {
-        static displayName = 'withPerformance';
-
-        constructor(props) {
-            super(props);
-            this.trace = null;
-            this.traceStarted = false;
-            this.initialMount = null;
-            this.initialUpdates = null;
-        }
-
-        async componentWillUnmount() {
-            if (this.trace) {
-                await this.trace.stop();
-            }
-        }
-
-        logMeasurement = async (id, phase, actualDuration, baseDuration) => {
-            // see output during DEV
-            if (__DEV__) console.log(id, actualDuration);
-            if (remote) {
-                fetch(remote, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ value: actualDuration }),
-                });
-            }
-        }
-
-        render() {
-            return (
-                <Profiler id={_id} onRender={this.logMeasurement}>
-                    <WrappedComponent
-                      {...this.props}
-                      {...this.state}
-                    />
-                </Profiler>
-
-            );
-        }
-    }
-
-    return HOC;
-};
-
+npx react-native-performance get
 ```
 
-export default withPerformance(YourScreen, 'Screen Name', 'http://localhost:3000/value');
+# usage
+```
+import withPerformance from 'react-native-performance-monitor/provider'
+...
+class YourScreen extends Component
+...
+export default withPerformance(YourScreen, 'YourScreen', 'http://127.0.0.1:8125/value', ['mount','render']);
+```
+
+
+
 
