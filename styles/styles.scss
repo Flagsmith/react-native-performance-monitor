@@ -1,6 +1,6 @@
 @import "variables";
 @import "3rdParty/index";
-$width: 280px;
+$menu-width: 330px;
 
 @mixin transition($args...) {
   -webkit-transition: $args;
@@ -14,6 +14,7 @@ html, body {
   background: $body-bg;
   font-family: Roboto, sans-serif;
   overflow: hidden;
+  font-size: 18px;
 }
 .clickable {
   cursor: pointer;
@@ -23,11 +24,11 @@ html, body {
   display: flex;
   flex-direction: column;
 
-  width: $width;
+  width: $menu-width;
   @include transition(all 0.5s ease);
   overflow: hidden;
   &.hidden {
-    margin-left: -($width);
+    margin-left: -($menu-width);
   }
   background: $sidebar-bg;
 }
@@ -65,7 +66,7 @@ $input-color-active: #ebf0f6;
 
 }
 input {
-  width: 200px;
+  width: $menu-width - 80;
   outline: none;
   background: transparent;
   border: 2px solid $input-color;

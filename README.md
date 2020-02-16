@@ -1,4 +1,4 @@
-<img src="./screenshot.png"/>
+<img src="./example.gif"/>
 
 This is work in progress, come back later.
 
