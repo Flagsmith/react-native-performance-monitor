@@ -1,3 +1,5 @@
+# React Native Performance Monitor
+
 <img src="./example.gif"/>
 
 This project lets you see a realtime graph of render times. The purpose is for you to be able to create experiments on your markup and see how performance is impacted in terms of mounting and rendering.
@@ -5,17 +7,17 @@ This project lets you see a realtime graph of render times. The purpose is for y
 Every render causes data to be posted to the realtime graph, you can configure whether it's just mounts or updates that are posted. 
 
 
-# installation
+## installation
 ```
 npm i react-native-performance-monitor --save
 ```
 
-# Displaying the graph
+## Displaying the graph
 ```
 npx react-native-performance get
 ```
 
-# usage
+## usage
 ```
 import withPerformance from 'react-native-performance-monitor/provider'
 ...
