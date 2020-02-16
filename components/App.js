@@ -50,7 +50,9 @@ export default class extends React.Component {
     componentDidMount() {
         const socket = io.connect('http://localhost:3000');
         socket.on('data', (fetchedData) => {
-            this.addItem(fetchedData);
+            if (!this.state.paused) {
+                this.addItem(fetchedData);
+            }
         });
     }
 
@@ -110,23 +112,45 @@ export default class extends React.Component {
         this.setState(_.cloneDeep(defaultState));
     }
 
+    toggle= () => this.setState({ hideMenu: !this.state.hideMenu })
+
+    pauseResume= () => this.setState({ paused: !this.state.paused })
+
     render() {
         return (
-            <div style={{ height: '100vh' }}>
-                <div style={{ flex: 1 }}>
-                    <ReactFC
-                      type={this.state.type}
-                      width="100%"
-                      height="90%"
-                      dataFormat="json"
-                      dataSource={this.state.dataSource}
-                    />
-                </div>
-                <div className="text-center mt-2">
-                    <button className="btn btn-primary mr-2" onClick={this.addSeries}>Add Variant</button>
-                </div>
-                <div className="text-center mt-2">
-                    <button className="btn btn-danger" onClick={this.clear}>Clear</button>
+            <div className="container-fluid">
+                <div className="row">
+                    <div className={`control-panel${this.state.hideMenu ? ' hidden' : ''}`}>
+                        <div style={{ flex: 1 }}>
+                            <div className="text-center mt-2">
+                                <button type="button" className="btn btn-primary mr-2" onClick={this.addSeries}>Add Variant</button>
+                            </div>
+                            <div className="text-center mt-2">
+                                <button type="button" className="btn btn-primary" onClick={this.pauseResume}>
+                                    {this.state.paused ? 'Resume' : 'Pause'}
+                                </button>
+                            </div>
+                        </div>
+                        <div className="text-center mt-2 mb-2">
+                            <button type="button" className="btn btn-danger" onClick={this.clear}>Clear Tests</button>
+                        </div>
+                    </div>
+                    <div className="content">
+                        <div className="nav">
+                            <a onClick={this.toggle}>
+                                <img height={34} src="/static/menu.svg"/>
+                            </a>
+                        </div>
+                        <div className="content-inner">
+                            <ReactFC
+                              type={this.state.type}
+                              width="100%"
+                              height="85%"
+                              dataFormat="json"
+                              dataSource={this.state.dataSource}
+                            />
+                        </div>
+                    </div>
                 </div>
             </div>
         );
