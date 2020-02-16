@@ -1,0 +1,54 @@
+{
+  "name": "react-native-performance-monitor",
+  "description": "Monitor the performance of your React Native components in realtime",
+  "version": "1.0.11",
+  "author": "kyle @kyle-ssg",
+  "bin": {
+    "react-native-performance-monitor": "./bin/run"
+  },
+  "dependencies": {
+    "@oclif/command": "1",
+    "@oclif/config": "1",
+    "@oclif/plugin-help": "2",
+    "cli-ux": "5.4.2",
+    "http-server": "0.12.1",
+    "socket.io": "2.3.0",
+    "lodash": "4.17.15"
+  },
+  "devDependencies": {
+    "@oclif/dev-cli": "1",
+    "eslint": "5.13",
+    "eslint-config-oclif": "3.1",
+    "globby": "10"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [
+    "/bin",
+    "/npm-shrinkwrap.json",
+    "/oclif.manifest.json",
+    "/src",
+    "/out"
+  ],
+  "keywords": [
+    "oclif"
+  ],
+  "license": "MIT",
+  "main": "src/index.js",
+  "oclif": {
+    "commands": "./src/commands",
+    "bin": "react-native-performance-monitor",
+    "plugins": [
+      "@oclif/plugin-help"
+    ]
+  },
+  "repository": "kyle-ssg/ssg",
+  "scripts": {
+    "postpack": "rm -f oclif.manifest.json",
+    "posttest": "eslint .",
+    "prepack": "oclif-dev manifest && oclif-dev readme",
+    "test": "echo NO TESTS",
+    "version": "oclif-dev readme && git add README.md"
+  }
+}

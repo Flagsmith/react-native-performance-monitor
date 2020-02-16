@@ -54,7 +54,7 @@ export default class extends React.Component {
     }
 
     componentDidMount() {
-        const socket = io.connect('http://localhost:3000');
+        const socket = io.connect('http://localhost:8125');
         socket.on('data', (fetchedData) => {
             if (!this.state.paused) {
                 this.addItem(fetchedData);
