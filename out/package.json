@@ -1,0 +1,34 @@
+{
+  "name": "react-native-performance-monitor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server -p 3333"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BulletTrainHQ/react-native-performance-monitor.git"
+  },
+  "keywords": [
+    "react-native",
+    "react-component",
+    "react-native-component",
+    "react",
+    "mobile",
+    "performance",
+    "monitor"
+  ],
+  "author": "kyle-ssg",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BulletTrainHQ/react-native-performance-monitor/issues"
+  },
+  "homepage": "https://github.com/BulletTrainHQ/react-native-performance-monitor#readme",
+  "peerDependencies": {
+    "react": "^0.13.3"
+  },
+  "dependencies": {
+    "http-server": "^0.12.1"
+  }
+}

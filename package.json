@@ -8,6 +8,7 @@
     "dev": "node server.js",
     "env": "node ./bin/env.js",
     "build": "next build ",
+    "export": "rm -rf ./out/_next && next export",
     "start": "cross-env NODE_ENV=production npm run build && cross-env NODE_ENV=production node server.js",
     "lint": "eslint ."
   },

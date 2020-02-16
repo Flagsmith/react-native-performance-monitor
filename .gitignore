@@ -18,5 +18,4 @@ pacts/*
 coverage/*
 .nyc_output/*
 .next
-out
 dist
