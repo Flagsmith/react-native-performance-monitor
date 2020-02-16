@@ -7,8 +7,8 @@
     "analyze": "cross-env BUNDLE_ANALYZE=true next build ",
     "dev": "node server.js",
     "env": "node ./bin/env.js",
-    "build": "next build ",
-    "export": "rm -rf ./out/_next && next export",
+    "build": "next build",
+    "export": "next export -o lib/src/out",
     "start": "cross-env NODE_ENV=production npm run build && cross-env NODE_ENV=production node server.js",
     "lint": "eslint ."
   },
