@@ -12,7 +12,7 @@ Every render causes data to be posted to the realtime graph, you can configure w
 npm i react-native-performance-monitor --save
 ```
 
-## Displaying the graph
+## Displaying the graph (runs on localhost:8125)
 ```
 npx react-native-performance get
 ```
