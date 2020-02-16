@@ -1,7 +1,7 @@
 {
   "name": "react-native-performance-monitor",
   "description": "Monitor the performance of your React Native components in realtime",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "author": "kyle @kyle-ssg",
   "bin": {
     "react-native-performance-monitor": "./bin/run"
@@ -29,6 +29,7 @@
     "/npm-shrinkwrap.json",
     "/oclif.manifest.json",
     "/src",
+    "/provider.js",
     "/out"
   ],
   "keywords": [
