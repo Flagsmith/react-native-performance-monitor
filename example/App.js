@@ -1,4 +1,5 @@
-import React, {Component, PureComponent} from 'react';
+import React, { Component, PureComponent } from 'react';
+import propTypes from 'prop-types'
 import withPerformance from 'react-native-performance-monitor/provider';
 import {
   SafeAreaView,
@@ -7,36 +8,56 @@ import {
   Text,
   StatusBar,
 } from 'react-native';
-const data = Array.from(Array(10000).keys());
 const fastMode = false;
 
-class FastText extends PureComponent{
+const data = Array.from(Array(10000).keys())
+  .map((key) => ({ key: key + '' }));
+
+class FastText extends PureComponent {
   render() {
-    return <Text>{this.props.children}</Text>
+    return (
+      <Text style={[this.props.style]}>
+        {this.props.children}
+      </Text>
+    );
   }
 }
 
-class SlowText extends Component{
+
+class SlowText extends Component {
+  static displayName = 'Text';
+
+  static propTypes = {
+    style: propTypes.any,
+    children: propTypes.node,
+  };
   render() {
-    return <Text>{this.props.children}</Text>
+    const {
+      props: { style, children },
+    } = this;
+    return (
+      <Text {...this.props} style={[style]}>
+        {children}
+      </Text>
+    );
   }
 }
 
-const renderItem = ({index})=> (
- <View key={index} style={{height:200, justifyContent:'center', alignItems:'center'}}>
-   {
-     fastMode? <FastText>React Native Performance Monitor {index}</FastText> : <SlowText>React Native Performance Monitor {index}</SlowText>
-   }
- </View>
-)
+const renderItem = ({ item }) => (
+  <View key={item.key} style={{ height: 50, justifyContent: 'center', alignItems: 'center' }}>
+    {
+      fastMode ? <Text>React Native Performance Monitor {item.key}</Text> :
+        <FastText>React Native Performance Monitor {item.key}</FastText>
+    }
+  </View>
+);
 
 const App = () => {
   return (
     <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView style={{flex:1, padding:20}}>
+      <StatusBar barStyle="dark-content"/>
+      <SafeAreaView style={{ flex: 1, padding: 20 }}>
         <FlatList
-          keyExtractor={(item,index)=>index}
           data={data}
           renderItem={renderItem}
         />

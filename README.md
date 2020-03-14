@@ -1,28 +1,43 @@
-# React Native Performance Monitor
+<img src="./lib/example.gif"/>
 
-<img src="./example.gif"/>
-
-This project lets you see a realtime graph of render times. The purpose is for you to be able to create experiments on your markup and see how performance is impacted in terms of mounting and rendering.
- 
-Every render causes data to be posted to the realtime graph, you can configure whether it's just mounts or updates that are posted. 
+This project lets you see a realtime graph of render times within your React Native app. The purpose is for you to be able to create experiments (i.e. change markup and see how it affects render times).
 
 
-## installation
+# Installation
+
 ```
 npm i react-native-performance-monitor --save
+npx react-native-performance-monitor get
 ```
 
-## Displaying the graph (runs on localhost:8125)
+
+# Usage
 ```
-npx react-native-performance get
+import withPerformanceMonitor from 'react-native-performance-monitor/provider';
+export default withPerformanceMonitor(YourScreen, 'Screen Name');
 ```
 
-## usage
+# An example
+
+Set your baseline at http://127.0.0.1:8125/ by clicking remount. Pause the recorder, and adjust your component with what you think will improve perormance.
+
+
+Here's a before and after with this approach
+
+Baseline
 ```
-import withPerformance from 'react-native-performance-monitor/provider'
-...
-class YourScreen extends Component
-...
-export default withPerformance(YourScreen, 'YourScreen', 'http://127.0.0.1:8125/value', ['mount','render']);
+<Text style={[this.props.style]}>
+    {this.props.children}
+</Text>
 ```
 
+Improved
+```
+<Text style={this.props.style}>
+    {this.props.children}
+</Text>
+```
+
+With this before and after I observed the following within a large flat list. 
+
+<img src="./lib/example2.png"/>
