@@ -1,8 +1,9 @@
 {
   "name": "react-native-performance-monitor",
   "description": "Monitor the performance of your React Native components in realtime",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "author": "kyle @kyle-ssg",
+
   "bin": {
     "react-native-performance-monitor": "./bin/run"
   },
@@ -45,7 +46,10 @@
       "@oclif/plugin-help"
     ]
   },
-  "repository": "kyle-ssg/ssg",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:BulletTrainHQ/react-native-performance-monitor.git"
+  },
   "scripts": {
     "dev": "node start-server.js",
     "postpack": "rm -f oclif.manifest.json",
