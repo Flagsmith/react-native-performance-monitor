@@ -27,3 +27,4 @@ const HomePage = class extends React.Component {
 };
 
 export default HomePage;
+
