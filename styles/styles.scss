@@ -86,3 +86,15 @@ input {
   border: 2px solid transparent;
   outline: none!important;
 }
+
+.btn-secondary, .btn-secondary:hover, .btn-secondary:active, .btn-secondary:focus {
+  background: $button-secondary-background !important;
+  border: 2px solid transparent;
+}
+
+.btn-danger {
+  background-color: transparent;
+  border-color: $danger;
+  border-width: 2px;
+  color: $button-color;
+}

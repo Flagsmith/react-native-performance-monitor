@@ -4580,10 +4580,20 @@ input {
     color: #ebf0f6; }
 
 .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:focus {
-  background: #4e5a64 !important;
+  background: #37414b !important;
   color: #ebf0f6 !important;
   border: 2px solid transparent;
   outline: none !important; }
+
+.btn-secondary, .btn-secondary:hover, .btn-secondary:active, .btn-secondary:focus {
+  background: #414b64 !important;
+  border: 2px solid transparent; }
+
+.btn-danger {
+  background-color: transparent;
+  border-color: #b02c47;
+  border-width: 2px;
+  color: #ebf0f6; }
 
 
 /*# sourceMappingURL=styles.chunk.css.map*/

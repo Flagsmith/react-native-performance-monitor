@@ -8,6 +8,9 @@ import _ from 'lodash';
 import parseInput from './parse-input';
 import Row from './Row';
 
+document.addEventListener('click', function(e) { if(document.activeElement.toString() == '[object HTMLButtonElement]'){ document.activeElement.blur(); } });
+
+
 ReactFC.fcRoot(FusionCharts, Charts, TimeSeries, FusionTheme);
 const colors = [
     '#5d62b5', '#29c3be', '#f2726f',
@@ -145,6 +148,18 @@ export default class extends React.Component {
 
     pauseResume= () => this.setState({ paused: !this.state.paused })
 
+
+    repeat = (cb,times)=> {
+        const rep = function(e,currentTimes=0) {
+            if (currentTimes<times) {
+                cb();
+                setTimeout(()=>{
+                    rep(null,currentTimes+1)
+                }, 200)
+            }
+        }
+        return rep;
+    }
     render() {
         const datasets = this.state.dataSource.dataset;
         return (
@@ -181,12 +196,34 @@ export default class extends React.Component {
                             >Remount
                             </button>
                             <button
-                              style={{ width: 140 }} type="button" className="btn btn-primary"
-                              onClick={this.sendForceUpdate}
-                            >Force Update
+                              style={{ width: 70 }} type="button" className="btn mr-2 btn-secondary"
+                              onClick={this.repeat(this.sendRemount, 5)}
+                            >x5
+                            </button>
+                            <button
+                              style={{ width: 70 }} type="button" className="btn btn-secondary"
+                              onClick={this.repeat(this.sendRemount, 10)}
+                            >x10
                             </button>
                         </div>
-                        <div className="text-center mb-2">
+                        <div className="text-center mt-2 mb-2">
+                            <button
+                              style={{ width: 140 }} type="button" className="btn mr-4 btn-primary"
+                              onClick={this.sendRemount}
+                            >Force Update
+                            </button>
+                            <button
+                              style={{ width: 70 }} type="button" className="btn mr-2 btn-secondary"
+                              onClick={this.repeat(this.sendForceUpdate, 5)}
+                            >x5
+                            </button>
+                            <button
+                              style={{ width: 70 }} type="button" className="btn btn-secondary"
+                              onClick={this.repeat(this.sendForceUpdate, 10)}
+                            >x10
+                            </button>
+                        </div>
+                        <div className="text-center mb-2 mt-4">
                             <button type="button" className="btn btn-danger" onClick={this.clear}>Clear Tests</button>
                         </div>
 

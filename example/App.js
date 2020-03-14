@@ -1,69 +1,72 @@
 import React, { Component, PureComponent } from 'react';
-import propTypes from 'prop-types'
+import propTypes from 'prop-types';
 import withPerformance from 'react-native-performance-monitor/provider';
 import {
   SafeAreaView,
-  FlatList,
+  ScrollView,
   View,
   Text,
-  StatusBar,
+  StyleSheet,
 } from 'react-native';
-const fastMode = false;
 
-const data = Array.from(Array(10000).keys())
+const data = Array.from(Array(100).keys())
   .map((key) => ({ key: key + '' }));
 
-class FastText extends PureComponent {
-  render() {
-    return (
-      <Text style={[this.props.style]}>
-        {this.props.children}
-      </Text>
-    );
-  }
-}
-
-
-class SlowText extends Component {
+class MyItem extends PureComponent {
   static displayName = 'Text';
 
   static propTypes = {
     style: propTypes.any,
     children: propTypes.node,
   };
+
   render() {
     const {
-      props: { style, children },
+      props: { textStyle, children, ...rest },
     } = this;
     return (
-      <Text {...this.props} style={[style]}>
-        {children}
-      </Text>
+      <View  style={styles.itemContainer}>
+        <Text style={[textStyle]}>
+          {children}
+        </Text>
+      </View>
     );
   }
 }
 
-const renderItem = ({ item }) => (
-  <View key={item.key} style={{ height: 50, justifyContent: 'center', alignItems: 'center' }}>
-    {
-      fastMode ? <Text>React Native Performance Monitor {item.key}</Text> :
-        <FastText>React Native Performance Monitor {item.key}</FastText>
-    }
-  </View>
+const renderItem = (item) => (
+    <MyItem
+      textStyle={styles.text}
+      key={item.key}>
+      react-native-performance-monitor line {item.key}
+    </MyItem>
 );
 
 const App = () => {
   return (
     <>
-      <StatusBar barStyle="dark-content"/>
-      <SafeAreaView style={{ flex: 1, padding: 20 }}>
-        <FlatList
-          data={data}
-          renderItem={renderItem}
-        />
+      <SafeAreaView style={styles.container}>
+       <ScrollView>
+         {data.map(renderItem)}
+       </ScrollView>
       </SafeAreaView>
     </>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 20,
+  },
+  itemContainer: {
+    height: 50,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  text: {
+    color:'blue'
+  }
+});
 
 export default withPerformance(App, 'App');
