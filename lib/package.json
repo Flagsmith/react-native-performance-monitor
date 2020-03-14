@@ -12,8 +12,9 @@
     "@oclif/plugin-help": "2",
     "cli-ux": "5.4.2",
     "http-server": "0.12.1",
+    "lodash": "4.17.15",
     "socket.io": "2.3.0",
-    "lodash": "4.17.15"
+    "ws": "^7.2.3"
   },
   "devDependencies": {
     "@oclif/dev-cli": "1",
@@ -46,6 +47,7 @@
   },
   "repository": "kyle-ssg/ssg",
   "scripts": {
+    "dev": "node start-server.js",
     "postpack": "rm -f oclif.manifest.json",
     "posttest": "eslint .",
     "prepack": "oclif-dev manifest && oclif-dev readme",

@@ -5,7 +5,6 @@ import TimeSeries from 'fusioncharts/fusioncharts.overlappedcolumn2d';
 import FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
 import ReactFC from 'react-fusioncharts/lib/ReactFC';
 import _ from 'lodash';
-import io from 'socket.io-client';
 import parseInput from './parse-input';
 import Row from './Row';
 
@@ -54,12 +53,26 @@ export default class extends React.Component {
     }
 
     componentDidMount() {
-        const socket = io.connect('http://localhost:8125');
-        socket.on('data', (fetchedData) => {
-            if (!this.state.paused) {
-                this.addItem(fetchedData);
-            }
-        });
+        this.socket = new WebSocket('ws://localhost:8126');
+        this.socket.onopen = function (event) {
+            console.log('Connected');
+        };
+
+        this.socket.onmessage = (event) => {
+            try {
+                if (!this.state.paused) {
+                    this.addItem(JSON.parse(event.data).value);
+                }
+            } catch (e) {}
+        };
+    }
+
+    sendRemount = () => {
+        this.socket.send('remount');
+    }
+
+    sendForceUpdate = () => {
+        this.socket.send('forceUpdate');
     }
 
     addItem = (value = Math.random()) => {
@@ -152,7 +165,7 @@ export default class extends React.Component {
                             ))}
                             <div className="text-center mt-2">
                                 <button type="button" className="btn btn-primary mr-2" onClick={this.addSeries}>
-                                    <img width={20} src="/static/add.svg"/> Add Experiment
+                                   Add Experiment
                                 </button>
                             </div>
                             <div className="text-center mt-2">
@@ -162,8 +175,21 @@ export default class extends React.Component {
                             </div>
                         </div>
                         <div className="text-center mt-2 mb-2">
+                            <button
+                              style={{ width: 140 }} type="button" className="btn mr-4 btn-primary"
+                              onClick={this.sendRemount}
+                            >Remount
+                            </button>
+                            <button
+                              style={{ width: 140 }} type="button" className="btn btn-primary"
+                              onClick={this.sendForceUpdate}
+                            >Force Update
+                            </button>
+                        </div>
+                        <div className="text-center mb-2">
                             <button type="button" className="btn btn-danger" onClick={this.clear}>Clear Tests</button>
                         </div>
+
                     </div>
                     <div className="content">
                         <div className="nav">

@@ -81,8 +81,8 @@ input {
   text-indent: 5px;
 }
 .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:focus {
-  background: #ebf0f6 !important;
-  color: #677182 !important;
+  background: $button-background !important;
+  color: $button-color !important;
   border: 2px solid transparent;
   outline: none!important;
 }

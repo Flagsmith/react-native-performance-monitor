@@ -16,6 +16,7 @@ const HomePage = class extends React.Component {
   render = () => {
       return <>
           <Head>
+              <title>React Native Performance Monitor</title>
               <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"/>
           </Head>
           {App ? (

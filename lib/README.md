@@ -11,8 +11,8 @@ npx react-native-performance-monitor get
 ```
 
 
-Then use 
+Usage 
 ```
-import withPerformanceMonitor from 'react-native-performance-monitor';
-export default withPerformanceMonitor(YourScreen, 'Screen Name', 'http://localhost:8125/value');
+import withPerformanceMonitor from 'react-native-performance-monitor/provider';
+export default withPerformanceMonitor(YourScreen, 'Screen Name');
 ```

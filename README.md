@@ -24,6 +24,3 @@ class YourScreen extends Component
 export default withPerformance(YourScreen, 'YourScreen', 'http://127.0.0.1:8125/value', ['mount','render']);
 ```
 
-
-
-
