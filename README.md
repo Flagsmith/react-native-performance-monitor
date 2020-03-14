@@ -1,4 +1,4 @@
-<img src="./lib/example.gif"/>
+<img src="example.gif"/>
 
 This project lets you see a realtime graph of render times within your React Native app. The purpose is for you to be able to create experiments (i.e. change markup and see how it affects render times).
 
@@ -40,4 +40,4 @@ Improved
 
 With this before and after I observed the following within a large flat list. 
 
-<img src="./lib/example2.png"/>
+<img src="example2.png"/>
