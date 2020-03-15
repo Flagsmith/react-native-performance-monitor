@@ -49,8 +49,10 @@ The overall implementation is quite straight forward and simply involved passing
 
 There are 3 main components:
 
-- The React Native component that sends profile data to a server via REST and listens to messages (remount and forceUpdate) to trigger renders.
-- The Web socket server responsible for passing messages between the graph and the react native component
-- The Web application that receives websocket values and renders them to a graph
+- A [React Native component](https://github.com/BulletTrainHQ/react-native-performance-monitor/blob/master/lib/provider.js) that sends profile data to a server via REST and listens to messages (remount and forceUpdate) to trigger renders.
+- A [Web socket server](https://github.com/BulletTrainHQ/react-native-performance-monitor/blob/master/lib/src/server.js) responsible for passing messages between the graph and the react native component
+- A [Web application](https://github.com/BulletTrainHQ/react-native-performance-monitor/blob/master/components/App.js) that receives websocket values and renders them to a graph
+
+The following diagram is a brief explanation of the data flow:
 
 <img src="./data-flow.png"/>
