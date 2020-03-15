@@ -3,13 +3,13 @@ import propTypes from 'prop-types';
 import withPerformance from 'react-native-performance-monitor/provider';
 import {
   SafeAreaView,
-  ScrollView,
+  FlatList,
   View,
   Text,
   StyleSheet,
 } from 'react-native';
 
-const data = Array.from(Array(100).keys())
+const data = Array.from(Array(10000).keys())
   .map((key) => ({ key: key + '' }));
 
 class MyItem extends PureComponent {
@@ -22,11 +22,11 @@ class MyItem extends PureComponent {
 
   render() {
     const {
-      props: { textStyle, children, ...rest },
+      props: { textStyle, children },
     } = this;
     return (
-      <View  style={styles.itemContainer}>
-        <Text style={[textStyle]}>
+      <View style={styles.itemContainer}>
+        <Text style={textStyle}>
           {children}
         </Text>
       </View>
@@ -34,21 +34,22 @@ class MyItem extends PureComponent {
   }
 }
 
-const renderItem = (item) => (
+const renderItem = (res) => (
     <MyItem
       textStyle={styles.text}
-      key={item.key}>
-      react-native-performance-monitor line {item.key}
+      key={res.item.key}>
+      react-native-performance-monitor line {res.item.key}
     </MyItem>
 );
 
 const App = () => {
   return (
     <>
-      <SafeAreaView style={styles.container}>
-       <ScrollView>
-         {data.map(renderItem)}
-       </ScrollView>
+      <SafeAreaView style={{ flex: 1, padding: 20 }}>
+        <FlatList
+          data={data}
+          renderItem={renderItem}
+        />
       </SafeAreaView>
     </>
   );
@@ -65,7 +66,7 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   text: {
-    color:'blue'
+    color:'#333'
   }
 });
 
