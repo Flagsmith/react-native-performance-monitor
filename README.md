@@ -41,3 +41,16 @@ Improved
 With this before and after I observed the following within a large flat list. 
 
 <img src="example2.png"/>
+
+
+# How it works
+
+The overall implementation is quite straight forward and simply involved passing the onRenderCallback values via a websocket server to finally render them in a fancy graph.
+
+There are 3 main components:
+
+- The React Native component that sends profile data to a server via REST and listens to messages (remount and forceUpdate) to trigger renders.
+- The Web socket server responsible for passing messages between the graph and the react native component
+- The Web application that receives websocket values and renders them to a graph
+
+<img src="./data-flow.png"/>
