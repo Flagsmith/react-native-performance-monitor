@@ -42,6 +42,13 @@ With this before and after I observed the following within a large flat list.
 
 <img src="example2.png"/>
 
+# Connecting to a real device
+
+In order to connect to a real device you will need to set the IP you wish to point to, for example:
+
+```
+export default withPerformanceMonitor(AwesomeChat, 'AwesomeChat', '192.168.1.10');
+```
 
 # How it works
 
