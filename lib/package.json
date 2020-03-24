@@ -1,9 +1,8 @@
 {
   "name": "react-native-performance-monitor",
   "description": "Monitor the performance of your React Native components in realtime",
-  "version": "1.0.16",
+  "version": "1.1.0",
   "author": "kyle @kyle-ssg",
-
   "bin": {
     "react-native-performance-monitor": "./bin/run"
   },
@@ -12,6 +11,7 @@
     "@oclif/config": "1",
     "@oclif/plugin-help": "2",
     "cli-ux": "5.4.2",
+    "hoist-non-react-statics": "^3.3.2",
     "http-server": "0.12.1",
     "lodash": "4.17.15",
     "socket.io": "2.3.0",
@@ -35,7 +35,9 @@
     "/out"
   ],
   "keywords": [
-    "oclif"
+    "react-native",
+    "react",
+    "performance"
   ],
   "license": "MIT",
   "main": "src/index.js",
