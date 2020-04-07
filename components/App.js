@@ -243,7 +243,7 @@ export default class extends React.Component {
                     value={d.seriesname}
                   />
                   <span style={{color:'white', width:80, display:"inline-block"}} className="text-center">
-                    {(this.state.averages ? `~${this.state.averages[i]}ms` : "")}
+                    {(this.state.averages && this.state.averages[i] ? `~${this.state.averages[i]}ms` : "-")}
                   </span>
                   <button onClick={() => this.removeSeries(i)} type="button" className="btn btn-default">
                     <img width={20} src="/static/close.svg"/>
