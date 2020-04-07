@@ -4525,7 +4525,7 @@ html, body {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  width: 330px;
+  width: 400px;
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   -ms-transition: all 0.5s ease;
@@ -4534,7 +4534,7 @@ html, body {
   overflow: hidden;
   background: #292f3a; }
   .control-panel.hidden {
-    margin-left: -330px; }
+    margin-left: -400px; }
 
 .nav {
   height: 64px;
@@ -4564,9 +4564,11 @@ html, body {
 
 .experiment-row {
   padding: 10px; }
+  .experiment-row .btn {
+    float: right; }
 
 input {
-  width: 250px;
+  width: 220px;
   outline: none;
   background: transparent;
   border: 2px solid #b8bdc3;

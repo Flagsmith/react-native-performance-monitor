@@ -1,6 +1,6 @@
 @import "variables";
 @import "3rdParty/index";
-$menu-width: 330px;
+$menu-width: 400px;
 
 @mixin transition($args...) {
   -webkit-transition: $args;
@@ -63,10 +63,12 @@ $input-color: #b8bdc3;
 $input-color-active: #ebf0f6;
 .experiment-row {
   padding: 10px;
-
+  .btn {
+    float: right;
+  }
 }
 input {
-  width: $menu-width - 80;
+  width: $menu-width - 180;
   outline: none;
   background: transparent;
   border: 2px solid $input-color;
