@@ -44,7 +44,7 @@ With this before and after I observed the following within a large flat list.
 
 # Connecting to a real device
 
-In order to connect to a real device you will need to set the IP you wish to point to, for example:
+In order to connect to a real device you will need to set the IP of your computer, for example:
 
 ```
 export default withPerformanceMonitor(AwesomeChat, 'AwesomeChat', '192.168.1.10');
