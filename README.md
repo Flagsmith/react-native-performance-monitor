@@ -19,7 +19,7 @@ export default withPerformanceMonitor(YourScreen, 'Screen Name');
 
 # An example
 
-Set your baseline at http://127.0.0.1:8125/ by clicking remount. Pause the recorder, and adjust your component with what you think will improve perormance.
+Set your baseline at http://127.0.0.1:8125/ by clicking remount. Pause the recorder, and adjust your component with what you think will improve performance.
 
 
 Here's a before and after with this approach
