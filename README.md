@@ -50,6 +50,13 @@ In order to connect to a real device you will need to set the IP of your compute
 export default withPerformanceMonitor(AwesomeChat, 'AwesomeChat', '192.168.1.10');
 ```
 
+By default the server is listening on port 8125 for event updates and 8126 for websocket.
+If you need to configure the port, because you are tunneling your request or similar, and or disable the Websocket communication, you can do it like this:
+
+```
+export default withPerformanceMonitor(AwesomeChat, 'AwesomeChat', '192.168.1.10', undefined, undefined, 80, false);
+```
+
 # How it works
 
 The overall implementation is quite straight forward and simply involved passing the onRenderCallback values via a websocket server to finally render them in a fancy graph.
