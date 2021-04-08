@@ -1,3 +1,8 @@
+<img width="100%" src="https://raw.githubusercontent.com/SolidStateGroup/bullet-train-frontend/master/hero.png"/>
+
+# React Native Performance Monitor
+
+
 <img src="example.gif"/>
 
 This project lets you see a realtime graph of render times within your React Native app. The purpose is for you to be able to create experiments (i.e. change markup and see how it affects render times).
@@ -70,3 +75,14 @@ There are 3 main components:
 The following diagram is a brief explanation of the data flow:
 
 <img src="./data-flow.png"/>
+
+## Contributing
+
+Please read [CONTRIBUTING.md](https://gist.github.com/kyle-ssg/c36a03aebe492e45cbd3eefb21cb0486) for details on our code of conduct, and the process for submitting pull requests to us.
+
+## Useful links
+
+[Website](https://www.flagsmith.com/)
+
+[Documentation](https://docs.flagsmith.com/)
+
