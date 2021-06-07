@@ -7,7 +7,6 @@ import ReactFC from 'react-fusioncharts/lib/ReactFC';
 import _ from 'lodash';
 import parseInput from './parse-input';
 import Row from './Row';
-import { max } from 'moment';
 
 document.addEventListener('click', function(e) {
   if (document.activeElement.toString() == '[object HTMLButtonElement]') {
