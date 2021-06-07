@@ -14,7 +14,7 @@ npx react-native-performance-monitor get
 # Usage
 ```
 import withPerformanceMonitor from 'react-native-performance-monitor/provider';
-export default withPerformanceMonitor(YourScreen, 'Screen Name');
+export default withPerformanceMonitor({WrappedComponent: YourScreen, _id: 'Screen Name'});
 ```
 
 # An example
