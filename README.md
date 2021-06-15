@@ -1,7 +1,6 @@
-<img width="100%" src="https://raw.githubusercontent.com/SolidStateGroup/bullet-train-frontend/master/hero.png"/>
+<img width="100%" src="https://github.com/Flagsmith/flagsmith/raw/main/static-files/hero.png"/>
 
 # React Native Performance Monitor
-
 
 <img src="example.gif"/>
 
