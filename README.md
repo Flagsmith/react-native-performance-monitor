@@ -18,7 +18,7 @@ npx react-native-performance-monitor get
 # Usage
 ```
 import withPerformanceMonitor from 'react-native-performance-monitor/provider';
-export default withPerformanceMonitor(YourScreen, 'Screen Name');
+export default withPerformanceMonitor({WrappedComponent: YourScreen, _id: 'Screen Name'});
 ```
 
 # An example
@@ -51,14 +51,14 @@ With this before and after I observed the following within a large flat list.
 In order to connect to a real device you will need to set the IP of your computer, for example:
 
 ```
-export default withPerformanceMonitor(AwesomeChat, 'AwesomeChat', '192.168.1.10');
+export default withPerformanceMonitor({ WrappedComponent: AwesomeChat, _id: 'AwesomeChat', ip: '192.168.1.10'});
 ```
 
 By default the server is listening on port 8125 for event updates and 8126 for websocket.
 If you need to configure the port, because you are tunneling your request or similar, and or disable the Websocket communication, you can do it like this:
 
 ```
-export default withPerformanceMonitor(AwesomeChat, 'AwesomeChat', '192.168.1.10', undefined, undefined, 80, false);
+export default withPerformanceMonitor({WrappedComponent: AwesomeChat, _id: 'AwesomeChat', ip: '192.168.1.10', events: undefined, showLogs: undefined, port: 80, enableWS: false});
 ```
 
 # How it works

@@ -70,4 +70,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default withPerformance(App, 'App');
+export default withPerformance({WrappedComponent: App, _id: 'App'});

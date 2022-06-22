@@ -1,10 +1,11 @@
+import { join } from 'path';
+import cacheableResponse from 'cacheable-response';
+import express from 'express';
+import bodyParser from 'body-parser';
+
 require('@babel/polyfill');
 
-const { join } = require('path');
-const cacheableResponse = require('cacheable-response');
-const express = require('express');
 const next = require('next');
-
 const port = parseInt(process.env.PORT, 10) || 3000;
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
@@ -70,8 +71,8 @@ Promise.all([
         });
     }
 
-    server.post('/value', require('body-parser').json(), (req, res) => {
-        if (req.body && req.body.value) {
+    server.post('/value', bodyParser.json(), (req, res) => {
+        if (req?.body?.value) {
             io.emit('data', req.body.value);
         }
         res.send('');
