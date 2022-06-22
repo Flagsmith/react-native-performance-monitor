@@ -1,7 +1,7 @@
 {
   "name": "react-native-performance-monitor",
   "description": "Monitor the performance of your React Native components in realtime",
-  "version": "1.2.1",
+  "version": "2.0.0",
   "author": "kyle @kyle-ssg",
   "bin": {
     "react-native-performance-monitor": "./bin/run"
