@@ -41,7 +41,7 @@
     "lodash": "4.17.19",
     "merge-deep": "^3.0.3",
     "moment": "^2.24.0",
-    "next": "9.0.4",
+    "next": "12.1.0",
     "node-sass": "4.12.0",
     "prettier": "1.15.2",
     "prop-types": "15.7.2",
